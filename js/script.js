@@ -16,22 +16,34 @@ document.getElementById('to-top').addEventListener('click', function () {
 });
 
 
-// const hero = document.querySelector('#hero');
+function observeIntersection(elementId) {
+    const element = document.getElementById(elementId);
 
-// const options = {
-//     rootMargin: '0px',
-//     threshold: 0.5,
-// };
+    // Intersection Observer options
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.25,
+    };
 
-// const intersectionCallback = (entries, observer) => {
-//     entries.forEach((entry) => {
-//         if (entry.isIntersecting) {
-//             hero.classList.add('animate');
-//         } else {
-//             hero.classList.remove('animate');
-//         }
-//     });
-// };
+    // Intersection Observer callback
+    const intersectionCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                element.style.opacity = '1';
+                element.style.transition = 'opacity 0.5s';
+            } else {
+                element.style.opacity = '0';
+                element.style.transition = 'opacity 0.5s';
+            }
+        });
+    };
 
-// const observer = new IntersectionObserver(intersectionCallback, options);
-// observer.observe(hero);
+    // Create Intersection Observer
+    const observer = new IntersectionObserver(intersectionCallback, options);
+    observer.observe(element);
+}
+
+observeIntersection('rivuletlogo');
+observeIntersection('imageContainer');
+observeIntersection('carousel');
+observeIntersection('silverdale')
