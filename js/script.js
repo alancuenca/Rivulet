@@ -47,3 +47,4 @@ observeIntersection('rivuletlogo');
 observeIntersection('imageContainer');
 observeIntersection('carousel');
 observeIntersection('silverdale')
+observeIntersection('silverdalephoto')
